@@ -1,0 +1,97 @@
+/* meu-estilo.css */
+
+html {
+    height: 100%;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column; /* Empilha os itens (header, main, footer) */
+    height: 100%; /* Faz o body ter 100% da altura da tela */
+}
+
+main {
+    flex-grow: 1; /* Faz o <main> crescer e ocupar todo o espaço vago */
+    overflow-y: auto; /* Adiciona scroll SÓ NELE se o conteúdo vazar */
+    padding: 20px; /* Um respiro para o conteúdo interno */
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #f0f0f0;
+    text-decoration: none;
+    
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0; /* <-- Pode voltar ao original */
+    text-align: center;
+    flex-shrink: 0; /* Impede o header de encolher */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    gap: 15px;
+}
+
+li {
+    
+    color: #f0f0f0;
+    margin: 0 auto;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    max-width: 1200px;
+    border-radius: 10px;
+    background-color: #333333;
+    color: #f0f0f0;
+    margin: 0 auto 20px auto; /* 0 topo, auto laterais, 20px em baixo */
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h2{
+    color: #ffcc00;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #f0f0f0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    flex-shrink: 0; /* Impede o footer de encolher */
+}

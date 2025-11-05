@@ -1,0 +1,64 @@
+/* meu-estilo.css */
+h1 {
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: Black;
+    text-align: center;
+}
+
+
+li {
+    margin: 5px 0;
+    color: #f0f0f0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mensagem-sucesso {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #2ecc71; /* Verde */
+    border-radius: 5px;
+    background-color: #f0fdf4;
+    text-align: center;
+}
+.mensagem-sucesso h2 {
+    color: #155724; /* Verde escuro */
+}
+.mensagem-sucesso p {
+    color: #333;
+    font-size: 18px;
+}

@@ -1,17 +1,23 @@
 <?php
-    // 1. Incluímos o header primeiro
+    // Incluímos o header primeiro
     include 'header.php';
     
-    // 2. Incluímos a conexão com o banco
-    include 'conexao.php';
+    // Inclui o "molde" (a classe)
+    include 'Database.php';
 
-    // 3. Buscamos os hobbies no banco de dados
+    // Cria o objeto "fábrica"
+    $db = new Database();
+
+    // Pede para a fábrica criar e entregar a conexão
+    $pdo = $db->conectar();
+
+    // Buscamos os hobbies no banco de dados
     try {
-        // 4. Preparamos e executamos a query SQL
+        // Preparamos e executamos a query SQL
         $sql = "SELECT nome_hobbie FROM hobbies ORDER BY nome_hobbie ASC"; // "Selecione a coluna 'nome_hobbie' da tabela 'hobbies'"
         $stmt = $pdo->query($sql);
         
-        // 5. Buscamos TODOS os resultados como um array associativo
+        // Buscamos TODOS os resultados como um array associativo
         $hobbies = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     } catch (Exception $e) {

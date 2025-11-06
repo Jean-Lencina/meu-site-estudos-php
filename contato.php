@@ -1,32 +1,38 @@
 <?php
-    //1. Inclui o arquivo de conexão com o banco de dados
-    include 'conexao.php';
+   // Inclui o "molde" (a classe)
+    include 'Database.php';
 
-    //2. Inclui o cabeçalho do site
+    // Cria o objeto "fábrica"
+    $db = new Database();
+
+    // Pede para a fábrica criar e entregar a conexão
+    $pdo = $db->conectar();
+
+    // Inclui o cabeçalho do site
     include 'header.php';
 
-    //3. Variável de controle
+    // Variável de controle
     $mensagem_enviada = false;
     $nome_usuario = "";
     $email_usuario = "";
 
-    // 4. Verifica se o formulário foi enviado
+    // Verifica se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-        // 5. Coletamos TODOS os dados do formulário
+        // Coletamos TODOS os dados do formulário
         $nome_usuario = $_POST['name'];
         $email_usuario = $_POST['email'];
         $mensagem_usuario = $_POST['message']; // Capturamos a mensagem!
 
         try {
-            // 6. Preparamos o comando SQL (Seguro!)
+            // Preparamos o comando SQL (Seguro!)
             $sql = "INSERT INTO mensagens (nome, email, mensagem) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             
-            // 7. Executamos o comando, passando os dados
+            // Executamos o comando, passando os dados
             $stmt->execute([$nome_usuario, $email_usuario, $mensagem_usuario]);
 
-            // 8. Se tudo deu certo, atualizamos a variável
+            // Se tudo deu certo, atualizamos a variável
             $mensagem_enviada = true;
 
         } catch (Exception $e) {

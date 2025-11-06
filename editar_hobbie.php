@@ -9,19 +9,19 @@ $hobbie_id = null;   // Variável para guardar o ID
 // --- LÓGICA DE ATUALIZAÇÃO (POST) ---
 // Primeiro, checa se o formulário foi ENVIADO (via POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Pegamos os dados do formulário
+    // Pegamos os dados do formulário
     $hobbie_id = $_POST['hobbie_id'];
     $novo_nome = trim($_POST['novo_nome']);
 
     try {
-        // 2. Preparamos o comando UPDATE
+        // Preparamos o comando UPDATE
         $sql = "UPDATE hobbies SET nome_hobbie = ? WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         
-        // 3. Executamos
+        // Executamos
         $stmt->execute([$novo_nome, $hobbie_id]);
         
-        // 4. Redirecionamos de volta para o admin
+        // Redirecionamos de volta para o admin
         header("Location: admin.php");
         exit;
 
@@ -36,12 +36,12 @@ else if (isset($_GET['id'])) {
     $hobbie_id = $_GET['id'];
 
     try {
-        // 1. Buscamos o hobbie atual no banco
+        // Buscamos o hobbie atual no banco
         $sql = "SELECT nome_hobbie FROM hobbies WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$hobbie_id]);
         
-        // 2. Pegamos o resultado
+        // Pegamos o resultado
         $hobbie = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($hobbie) {

@@ -1,8 +1,15 @@
 <?php
-    include 'conexao.php';    // Inclui a conexão com o banco
+    // Inclui o "molde" (a classe)
+    include 'Database.php';
+
+    // Cria o objeto "fábrica"
+    $db = new Database();
+
+    // Pede para a fábrica criar e entregar a conexão
+    $pdo = $db->conectar();
 
     // Lógica de ADICIONAR (INSERT)
-    // 1. Verifica se o formulário de "novo_hobbie" foi enviado via POST
+    // Verifica se o formulário de "novo_hobbie" foi enviado via POST
     if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['novo_hobbie'])) {
         $novo_hobbie = trim($_POST['novo_hobbie']);
 
@@ -21,7 +28,7 @@
     }
     
     // --- LÓGICA DE EXCLUIR (DELETE) --- (PARTE NOVA)
-    // 1. Verifica se um 'delete_id' foi passado na URL (via GET)
+    // Verifica se um 'delete_id' foi passado na URL (via GET)
     if (isset($_GET['delete_id'])) {
         $id_para_deletar = $_GET['delete_id'];
         
@@ -66,12 +73,12 @@
         <div style="color: #eee; font-weight:bold;">Estatísticas do Site</h3>
             <?php
                 try {
-                    // 1. Contar Hobbies
+                    // Contar Hobbies
                     $sql_count_hobbies = "SELECT COUNT(*) FROM hobbies";
                     $stmt_count_hobbies = $pdo->query($sql_count_hobbies);
                     $total_hobbies = $stmt_count_hobbies->fetchColumn(); // fetchColumn() é perfeito para pegar um único valor
 
-                    // 2. Contar Mensagens
+                    // Contar Mensagens
                     $sql_count_msgs = "SELECT COUNT(*) FROM mensagens";
                     $stmt_count_msgs = $pdo->query($sql_count_msgs);
                     $total_mensagens = $stmt_count_msgs->fetchColumn();
@@ -102,7 +109,7 @@
         <h3>Meus Hobbies Atuais</h3>
         <ul>
             <?php
-                // 2. Faz o loop para exibi-los
+                // Faz o loop para exibi-los
                 foreach ($hobbies_admin as $hobbie) {
                     echo "<li style='color: #333;'>";
 
@@ -135,7 +142,7 @@
             </thead>
             <tbody>
                 <?php
-                    // 1. Busca as 5 mensagens MAIS NOVAS
+                    // Busca as 5 mensagens MAIS NOVAS
                     try {
                         $sql_msg = "SELECT id, nome, email, mensagem FROM mensagens ORDER BY id DESC LIMIT 5";
                         $stmt_msg = $pdo->query($sql_msg);
@@ -146,7 +153,7 @@
                         $mensagens = [];
                     }
 
-                    // 2. Faz o loop para exibir na tabela
+                    // Faz o loop para exibir na tabela
                     foreach ($mensagens as $msg) {
                         echo "<tr>";
                         echo "<td style='padding: 8px;'>" . $msg['id'] . "</td>";
@@ -187,7 +194,7 @@
                         $relatorio = [];
                     }
 
-                    // 2. Faz o loop para exibir na tabela
+                    // Faz o loop para exibir na tabela
                     foreach ($relatorio as $linha) {
                         echo "<tr>";
                         echo "<td style='padding: 8px;'>" . htmlspecialchars($linha['nome']) . "</td>";

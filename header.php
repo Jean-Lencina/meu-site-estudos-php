@@ -1,11 +1,22 @@
 <?php
-     $detalhes_pessoais = [
-        "Nome" => "Jean Carlos da Silva Lencina",
-        "Idade" => 30,
-        "Empresa" => "Bling",
-        "Cargo Atual" => "Suporte Técnico",
-        "Objetivo" => "Promoção para Desenvolvedor",
-        "Cargo pretendido" => "Desenvolvedor"
+    // 1. Inclui a nova classe "molde"
+    include 'Usuario.php';
+
+    // 2. Criamos o OBJETO $usuario, usando o __construct
+    $usuario = new Usuario(
+        "Jean Carlos da Silva Lencina", // $nome
+        30,                               // $idade
+        "Bling",                          // $empresa
+        "Suporte Técnico",                // $cargoAtual
+        "Promoção para Desenvolvedor",    // $objetivo
+        "Desenvolvedor"                   // $cargoPretendido
+    );
+
+    // OBS: O array $hobbies ainda fica aqui por enquanto.
+    $hobbies = [
+        "Explorar novas tecnologias",
+        "Desenvolver sistemas",
+        "Assistir videos no Youtube sobre tecnologia"
     ];
 ?>
 
@@ -19,7 +30,7 @@
 </head>
 <body>
     <header>
-        <h1><?= $detalhes_pessoais["Nome"]; ?></h1>
+        <h1><?= $usuario->getNome(); ?></h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>

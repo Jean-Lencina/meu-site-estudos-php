@@ -27,14 +27,14 @@
 ?>
     <main>
         <div>
-            <h2><?= $detalhes_pessoais["Cargo pretendido"] ?></h2>
-                <ul>
-                    <?php foreach ($detalhes_pessoais as $chave => $valor) { ?>
-                    <li>
-                        <strong><?= $chave; ?>:</strong> <?= $valor; ?>
-                    </li>
-                    <?php } ?>
-                </ul>
+            <h2><?= $usuario->getCargoPretendido(); ?></h2>
+            <ul>
+                <li><strong>Nome:</strong> <?= $usuario->getNome(); ?></li>
+                <li><strong>Idade:</strong> <?= $usuario->getIdade(); ?></li>
+                <li><strong>Empresa:</strong> <?= $usuario->getEmpresa(); ?></li>
+                <li><strong>Cargo Atual:</strong> <?= $usuario->getCargoAtual(); ?></li>
+                <li><strong>Objetivo:</strong> <?= $usuario->getObjetivo(); ?></li>
+</ul>
         </div>
         <div>
             <h2>Meus Hobbies</h2>

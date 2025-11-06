@@ -1,6 +1,13 @@
 <?php
-// editar_hobbie.php
-include 'conexao.php';
+// Inclui o "molde" (a classe)
+    include 'Database.php';
+
+    // Cria o objeto "fábrica"
+    $db = new Database();
+
+    // Pede para a fábrica criar e entregar a conexão
+    $pdo = $db->conectar();
+
 include 'header.php';
 
 $hobbie_nome = ""; // Variável para guardar o nome do hobbie

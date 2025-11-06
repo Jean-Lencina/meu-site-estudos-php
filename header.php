@@ -25,6 +25,7 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="sobre-mim.php">Sobre mim</a></li>
                 <li><a href="contato.php">Contato</a></li>
+                <li><a href="admin.php" style="color: #ffcc00;">[Admin]</a></li>
             </ul>
         </nav>
     </header>

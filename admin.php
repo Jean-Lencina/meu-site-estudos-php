@@ -12,11 +12,12 @@
     // Verifica se o formulário de "novo_hobbie" foi enviado via POST
     if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['novo_hobbie'])) {
         $novo_hobbie = trim($_POST['novo_hobbie']);
+        $user_identifier = trim($_POST['user_identifier']);
 
        try {
-            $sql = "INSERT INTO hobbies (nome_hobbie) VALUES (?)";
+            $sql = "INSERT INTO hobbies (nome_hobbie, id_usuario) VALUES (?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$novo_hobbie]);
+            $stmt->execute([$novo_hobbie, $user_identifier]);
             
             // Redireciona para a própria página para limpar o POST
             header("Location: admin.php");
@@ -57,7 +58,7 @@
                             hobbies.nome_hobbie, 
                             usuarios.nome AS nome_usuario
                        FROM hobbies 
-                       INNER JOIN usuarios ON hobbies.id_usuario = usuarios.id
+                       LEFT JOIN usuarios ON hobbies.id_usuario = usuarios.id
                        ORDER BY hobbies.nome_hobbie ASC";
         $stmt_select = $pdo->query($sql_select);
         $hobbies_admin = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
@@ -102,6 +103,8 @@
         <form action="admin.php" method="POST">
             <label for="novo_hobbie">Adicionar Novo Hobbie:</label>
             <input type="text" id="novo_hobbie" name="novo_hobbie" required>
+            <label for="user_identifier" id="usuario">Usuário: </label>
+            <input type="text" id="user_identifier" name="user_identifier" required>
             <button type="submit">Adicionar</button>
         </form>
         

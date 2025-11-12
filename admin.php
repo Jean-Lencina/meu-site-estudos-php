@@ -99,16 +99,15 @@
         </div>
 
         <h2>Gerenciar Hobbies</h2>
-        
-        <form action="admin.php" method="POST">
+            <form action="admin.php" method="POST">
             <label for="novo_hobbie">Adicionar Novo Hobbie:</label>
             <input type="text" id="novo_hobbie" name="novo_hobbie" required>
-            <label for="user_identifier" id="usuario">Usuário: </label>
-            <input type="text" id="user_identifier" name="user_identifier" required>
+            <label for="user_identifier" id="usuario">Usuário(Somente número): </label>
+            <input type="text" id="user_identifier" name="user_identifier" required placeholder="1 - Jean, 2 - Júnior, 3 - Kálita">
             <button type="submit">Adicionar</button>
         </form>
-        
-        <hr> (PARTE NOVA)
+        <hr>
+
         <h3>Meus Hobbies Atuais</h3>
         <ul>
             <?php

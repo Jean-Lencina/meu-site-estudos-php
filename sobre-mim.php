@@ -38,10 +38,8 @@
         </div>
         <div>
             <h2>Meus Hobbies</h2>
-                <ul>
-                    <?php foreach ($hobbies as $hobbie_row) { ?>
-                        <li><?= $hobbie_row['nome_hobbie']; ?></li>
-                    <?php } ?>
+                <ul id="lista-hobbies">
+                    
                 </ul>
         </div>
     </main>

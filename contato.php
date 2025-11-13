@@ -55,15 +55,18 @@
         <?php else: ?>
 
             <h2>Entre em contato</h2>
-            <form action="contato.php" method="post">
+
+            <p id="mensagem-erro" style="color: red; text-align: center;"></p>
+            
+            <form id="form-contato" action="contato.php" method="post">
                 <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
 
                 <label for="message">Mensagem:</label>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea>
 
                 <input type="submit" value="Enviar">
             </form>

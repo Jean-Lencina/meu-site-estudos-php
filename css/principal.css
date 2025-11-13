@@ -88,6 +88,16 @@ p {
     color: #f0f0f0;
 }
 
+
+.modo-dark {
+    background-color: #1a1a1a;
+    color: #FFFFFF;
+}
+
+.modo-dark h2 {
+    color: #ffcc00;
+}
+
 footer {
     text-align: center;
     padding: 10px 0;

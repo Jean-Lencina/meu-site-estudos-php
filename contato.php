@@ -42,7 +42,7 @@
     }
 ?>
 
-    <link rel="stylesheet" href="contato-style.css">
+    <link rel="stylesheet" href="css/contato-style.css">
     
     <main>
         <?php if ($mensagem_enviada == true): ?>

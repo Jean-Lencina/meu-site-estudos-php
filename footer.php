@@ -1,5 +1,6 @@
 <footer>
     <p>&copy; 2025 Jean Lencina. Todos os direitos reservados.</p>
 </footer>
+<script src="Javascript/meu-script.js"></script>
 </body>
 </html>
